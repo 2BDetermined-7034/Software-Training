@@ -1,4 +1,13 @@
 # Java Resources
+Java is the main robot programming language the software team uses. 
+You may choose between the codecademy course or the citrus circuits training slides when learning java. 
+
+## CodeCademy
+Free ~12 hour course https://www.codecademy.com/learn/learn-java
+This course is officially recommended by WPIlib
+If you choose this route it is recommended to break this up into bite sized pieces
+Takes longer, but is more professional with teaching and assessments than the training slides
+Recommended for people with little-no java experience already.
 
 ### Citrus Circuits Java Training Slides
 These slideshows are the main java training curriculum for software
