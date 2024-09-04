@@ -29,7 +29,7 @@ Section for logging information from the robot through the networktables server.
 ### Dashboards
 All of these are useable but the default all purpose dashboard is now AdvantageScope. Glass is more powerful and is the expected interface for other official wpilib tools like System Identification and Robot Simulations, but AdvantageScope is simply more convenient. Others like Shuffleboard are extremely customizable and many teams have their own color themes, including us with our shuffleboard theme repo. It's recommended to pick one of these as your default network tables veiwer but know how to navigate all of these in a pinch.
 1. [AdvantageScope](https://docs.wpilib.org/en/stable/docs/software/dashboards/advantagescope.html)
-2. [ShuffleBoard]([https://docs.wpilib.org/en/stable/search.html?q=Shuffleboard&check_keywords=yes&area=default](https://docs.wpilib.org/en/stable/docs/software/dashboards/shuffleboard/index.html))
+2. [ShuffleBoard](https://docs.wpilib.org/en/stable/docs/software/dashboards/shuffleboard/getting-started/shuffleboard-tour.html)
 3. [SmartDashBoard](https://docs.wpilib.org/en/stable/docs/software/dashboards/smartdashboard/index.html)
 4. [Glass](https://docs.wpilib.org/en/stable/docs/software/dashboards/glass/index.html)
 5. 
