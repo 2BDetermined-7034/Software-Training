@@ -24,7 +24,7 @@ Create a tank drive using Neo brushless motors - Placeholder
 
 ## Telemetry
 Section for logging information from the robot through the networktables server. This is very uesful and a prerequisite to achieving anything more complex in wpilib.
-1. [NetworkTables](https://docs.wpilib.org/en/stable/docs/software/networktables/index.html)
+1. [NetworkTables](https://docs.wpilib.org/en/stable/docs/software/networktables/index.html) - More in depth, and faster in situations where performance matters, but for most situations you can use [Shuffleboard's java api.](https://docs.wpilib.org/en/stable/docs/software/dashboards/shuffleboard/getting-started/shuffleboard-displaying-data.html)
 
 ### Dashboards
 All of these are useable but the default all purpose dashboard is now AdvantageScope. Glass is more powerful and is the expected interface for other official wpilib tools like System Identification and Robot Simulations, but AdvantageScope is simply more convenient. Others like Shuffleboard are extremely customizable and many teams have their own color themes, including us with our shuffleboard theme repo. It's recommended to pick one of these as your default network tables veiwer but know how to navigate all of these in a pinch.
