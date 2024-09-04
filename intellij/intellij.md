@@ -26,3 +26,7 @@ The "build" keyword compiles your robot project
 The "deploy" keyword sends your robot project to the roborio if your laptop is on the robot's wifi or connected via usb-b/ethernet and the rio is detected.
 
 Finally click "apply", close the menu, select your new configuration, and then click the green play button. 
+
+
+### Youtrack Plugin
+See this [presentation](https://docs.google.com/presentation/d/15Tqu81e3AnlQp6lc-B11Alg0zSQ-wWJWVwokZRsNtto/edit#slide=id.p)
