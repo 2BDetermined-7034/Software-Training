@@ -17,6 +17,7 @@ Hub for any training resources and documentation for any and all technologies us
 13. AdvantageKit/AdvantageScope
 14. Revlib
 15. Pheonix 6
-16. PhotonVision
-17. Limelight (legacy)
-18. Control Theory
+16. YAGSL (Swerve)
+17. PhotonVision
+18. Limelight (legacy)
+19. Control Theory
