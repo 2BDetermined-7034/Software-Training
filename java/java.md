@@ -28,5 +28,5 @@ More Object Oriented Programming specific resources
 ### Styleguide
 A special set of guidlines developed by the team to help create readable and consistent code. 
 
-* [https://github.com/2BDetermined-7034/styleguide/blob/master/README.md](https://github.com/2BDetermined-7034/styleguide/blob/master/README.md)
+* [java-style-guide.md](/java/java-style-guide.md)
   
