@@ -7,7 +7,7 @@ Hub for any training resources and documentation for any and all technologies us
  3. Git/Github
  4. FRC Driverstation
  5. InteliJ
- 6. Roborio Imaging Tool
+ 6. Roborio
  7. Radio Imaging Tool
  8. Rev Hardware Client
  9. Pheonix Tuner X
