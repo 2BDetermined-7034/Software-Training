@@ -13,4 +13,4 @@ This section is about working with the roboRIO, from imaging the firmware, setti
 * [roboRIO Team Number Setter](https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/roborio-team-number-setter/index.html)
 
 ## Troubleshooting
-* [Common SSH Commands](roboRIO/roboRIO-ssh.md)
+* [Common SSH Commands](/roboRIO/roboRIO-ssh.md)
