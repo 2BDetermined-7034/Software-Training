@@ -14,7 +14,7 @@ The “admin” account has root access to the system and can be used to manipul
 
 `Password:`
 
-> ![NOTE] The password is intentionally left blank
+> [!NOTE] The password is intentionally left blank
 
 ## lvuser
 

@@ -1,7 +1,7 @@
 # roboRIO
 This section is about working with the roboRIO, from imaging the firmware, setting the team number, and debugging issues via ssh.
 
-> [Note]
+> [!NOTE]
 > The roboRIO 1 and roboRIO 2 are distinctly different and have their own procedures
 > The Rio 1 is flashed via USB-B, while the Rio 2 is flashed via microUSB
 

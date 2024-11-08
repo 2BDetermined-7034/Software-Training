@@ -4,7 +4,7 @@
 
 https://yagsl.gitbook.io/yagsl/configuring-yagsl/configuration
 
-*Note: When viewed from the top, make sure the sides of the wheel with the bevel gear are pointing to the **left***
+> [!NOTE]: When viewed from the top, make sure the sides of the wheel with the bevel gear are pointing to the **left***
 
 ### Swerve Orientation Diagram
 
@@ -23,7 +23,7 @@ https://yagsl.gitbook.io/yagsl/configuring-yagsl/configuration
 
 ### Build Specific Details
 
-*Note: This template assumes a **square** swervedrive configuration, specifying positions using*\* [robot relative axes](https://docs.wpilib.org/en/stable/docs/software/basic-programming/coordinate-system.html).\*\*\*
+> [!NOTE]: This template assumes a **square** swervedrive configuration, specifying positions using*\* [robot relative axes](https://docs.wpilib.org/en/stable/docs/software/basic-programming/coordinate-system.html).\*\*\*
 
 #### Module Positions
 
