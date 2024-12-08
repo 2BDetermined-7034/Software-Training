@@ -1,312 +1,165 @@
-### This style guide is from 2022 and is in drastic need of updating. Until this message is removed consider this document deprecated.
-
 # FRC 7034 Code Style Guide
 
-### Table of Contents
+## Table of Contents
 
-1. [Introduction](#1-introduction)
+1. [Introduction](#s1-introduction)
 
-   1.1    [Terminology](#11-terminology)
+    1.1 [Guide Notes](#s1.1-guide-notes)
 
-2. [Naming Conventions](#2-naming-conventions)
+2. [Source File Basics](#s2-source-file-basics)
 
-   2.1 [Rules Common to all Identifiers](#21-rules-common-to-all-identifiers)
+    2.1 [File Names](#s2.1-file-names)
+    
+3. [Source File Structure](#s3-source-file-structure)
 
-   2.2 [Rules by Identifier Type](#22-rules-by-identifier-type)
+<h2 id="s1-introduction">1 Introduction</h2>
 
-3. [Project Structure](#3-project-structure)
+This document serves as the complete definition of FRC Team 7034 coding standards for WPIlib java robot projects.
 
-   3.1 [Project File Hierarchy](#31-project-file-hierarchy)
+Like other programming style guides, the issues covered span not only aesthetic issues of formatting, but other types of conventions or coding standards as well. However, this document focuses primarily on the hard-and-fast rules that we follow universally, and avoids giving advice that isn't clearly enforceable (whether by human or tool). 
 
-   3.2 [3rd Party Libraries/JSON Files](#32-3rd-party-librariesjson-files)
-4. [RobotContainer](#4-robotcontainer)
+<h3 id="s1.1-guide-notes">1.1 Guide Notes</h3>
 
-   4.1 [RobotContainer Fields](#41-robotcontainer-fields)
+Example code in this document is non-normative. That is, while the examples are in Google Style, they may not illustrate the only stylish way to represent the code. Optional formatting choices made in examples should not be enforced as rules.
 
-   4.2 [RobotContainer Constructor](#42-robotcontainer-constructor)
+<h2 id="s2-source-file-basics">2 Source File Basics</h2>
 
-   4.3 [RobotContainer Methods](#43-robotcontainer-methods)
-5. [Subsystems](#5-subsystems)
+<h3 id="s2.1-file-names">2.1 File Names</h3>
 
-   5.1 [Subsystem Fields](#51-subsystem-fields)
+The source file name consists of the case-sensitive name of the top-level class it contains (of which there is exactly one), plus the .java extension.
 
-   5.2 [Subsystem Constructor](#52-subsystem-constructor)
+<h2 id="s3-source-file-structure">3 Source File Structure</h2>
 
-   5.3 [Subsystem Methods](#53-subsystem-methods)
-6. [Commands](#6-commands)
+A source file consists of, in order:
 
-   6.1 [Command Fields](#61-command-fields)
+1. License or copyright information, if present
+2. Package statement
+3. Import statements
+4. Exactly one top-level class
 
-   6.2 [Command Constructor](#62-command-constructor)
+<h3 id="s3.1-import-statements">3.1 Import Statements</h3>
 
-   6.3 [Command Methods](#63-command-methods)
+<h4 id="s3.1.1-no-wildcard-imports">3.1.1 No Wildcard Imports</h4>
 
-   6.4 [Command Factories](#64-command-factories)
-7. [Constants](#7-constants)
-8. [JavaDocs](#8-javadocs)
+**Wildcard Imports**, static or otherwise, are **not** used.
 
-   8.1 [Block Tags](#81-block-tags)
+<h4 id="s3.1.2-ordering-and-spacing">3.1.2 Ordering and Spacing</h4>
 
-   8.2 [Annotations](#82-annotations)
+Imports are ordered as follows:
 
-## **1. Introduction**
+    1. All static imports in a single block.
+    1. All non-static imports in a single block.
 
-This document serves as the definition of team 7034’s coding standards for all WPILib projects.
+If there are both static and non-static imports, a single blank line separates the two blocks. There are no other blank lines between import statements.
 
-### **1.1 Terminology**
+<h3 id="s3.2-class-declaration">3.2 Class Declaration</h3>
 
-In this document, unless otherwise clarified:
+<h4 id="s3.2.1-exactly-one-top-level-class-declaration">3.2.1 Exactly One Top Level Class Declaration"</h4>
 
+Each top-level class resides in a source file of its own.
 
-[//]: # (1. A `singleton` can be defined as a class that unambiguously allows only a single instance to exist. As such, it is impossible to create more than one object of a class at any given point in time.)
+## 4 Formatting
 
-1. The employment of the `class` concept affords a meticulously structured and precise framework for generating objects,
-   delineating their intrinsic attributes and functionalities.
-2. To `mutate` a variable once it has been defined means to alter its value.
-3. `Telemetry` refers to the gathering of measurements or other data through sensors on the robot, which are then
-   transmitted to the driver station for viewing purposes. This process is commonly referred to as logging.
+### 4.1 Braces
 
-More _Terminology Notes_ will appear frequently throughout the document.
+#### 4.1.1 Use of optional braces
 
-## **2. Naming Conventions**
+Braces are used with if, else, for, do and while statements, even when the body is empty or contains only a single statement.
 
-This section has been ripped from the [Google Java style guide](https://google.github.io/styleguide/javaguide.html). The
-only key takeaway from this section is that the team will be moving on from Hungarian notation, so feel free to skip
-this section.
+Other optional braces, such as those in a lambda expression, remain optional.
 
-### **2.1 Rules common to all identifiers**
+### 4.2 Column Limit: 100
 
-Identifiers use only ASCII letters and digits
+Java code has a column limit of 100 characters. Any line that would exceed this limit must be line-wrapped.
 
-### **2.2 Rules by identifier type**
+Exceptions:
+1. Lines where obeying the column limit is not possible (for example, a long URL in Javadoc)
+2. `package` and `import` statements
+3. Shell commands in comments
 
-#### **2.2.1 Package names**
+### 4.3 Line Wrapping
 
-Package or folder names use only lowercase letters and digits (no underscores). Consecutive words are simply
-concatenated together. For example, `com.example.deepspace`, **not `com.example.deepSpace`**
-or `com.example.deep_space`.
+Terminology Note: When code that might otherwise legally occupy a single line is divided into multiple lines, this activity is called line-wrapping.
 
-#### **2.2.2 Class names**
+There is no comprehensive, deterministic formula showing exactly how to line-wrap in every situation. Very often there are several valid ways to line-wrap the same piece of code.
 
-Class names are written in UpperCamelCase such as `ExampleSubsystem`. Class names are typically nouns or noun phrases.
+#### 4.3.1 Indent continuation lines at least +4 spaces
 
-Command names are created by adding an adjective to the Subsystem name.
+When line-wrapping, each line after the first (each continuation line) is indented at least +4 from the original line.
 
-#### **2.2.3 Method names**
+### 4.4 Modifiers
+
+Class and member modifiers, when present, appear in the order recommended by the Java Language Specification: 
+
+``java
+public protected private abstract default static final transient volatile synchronized native strictfp
+``
+
+## 5 Naming
+
+The words 'name' and 'identifier' will be used interchangeably in this section.
+
+### 5.1 Rules common to all identifiers
+
+Identifiers use only ASCII letters and digits.
+
+### 5.2 Rules by Identifier Type
+
+#### 5.2.1 Package names
+
+Package names use only lowercase letters and digits (no underscores). Consecutive words are simply concatenated together. For example, `com.example.deepspace`, not `com.example.deepSpace` or `com.example.deep_space`.
+
+#### 5.2.2 Class names
+
+Class names are written in **UpperCamelCase**.
+
+Class names are typically nouns or noun phrases. For example, `Character` or `ImmutableList`.
+
+#### 5.2.3 Method names
 
 Method names are written in lowerCamelCase.
 
-Method names are typically verbs or verb phrases. For example, `getSpeed` or `setSolenoid`.
+Method names are typically verbs or verb phrases. For example, `sendMessage` or `stop`.
 
-#### **2.2.4 Constant Names**
+#### 5.2.4 Constant names
 
-Constants are static final fields whose contents are deeply immutable and whose methods have no detectable side effects.
-If any of the instance's observable states can change, it is not a constant. Merely intending to never mutate the object
-is not sufficient.
+Constant names use UPPER\_SNAKE\_CASE: all uppercase letters, with each word separated from the next by a single underscore.
 
-Constants may use upper snake case but its usage is not required as most constants will all be found within the
-Constants class. For example, `DRIVER_CONTROLLER_PORT`
+#### 5.2.5 Non-constant field names
 
-## **3. Project Structure**
+Non-constant field names (static or otherwise) are written in lowerCamelCase.
 
-### **3.1 Project File Hierarchy**
+These names are typically nouns or noun phrases. For example, `computedValues` or `index`.
 
-Here is an example of a typical project structure
+#### 5.2.6 Parameter names
 
-![The image could not be loaded](<images/Project Structure Example.jpg>)
+Parameter names are written in lowerCamelCase.
 
-The default project template generated by WPILib has 4 classes within `frc/robot`. Main, Robot, RobotContainer, and
-Constants. The template also contains 2 folders for Commands and Subsystems.
+#### 5.2.7 Local variable names
 
-Within the commands package, there is a package named after each subsystem, where commands associated with that
-subsystem go.
+Local variable names are written in lowerCamelCase.
 
-### **3.2 3rd Party Libraries/JSON Files**
+### 5.3 Camel case: defined
 
-In addition to the main project, additional files made for third-party libraries or any JSON configurations belong
-in `src/main/deploy/library_name`
+See the canonical definition here. (https://google.github.io/styleguide/javaguide.html#s5.3-camel-case)
 
-![The image could not be loaded](<images/Project Structure Example 2.jpg>)
+## 6 Programming Practices
 
-In this example, the PathPlanner library uses a custom <code>.path</code> extension to move a drive base. All <code>
-.path</code> files are found under a folder called PathPlanner.
+### 6.1 `@Override`: always used
 
-## **4. RobotContainer**
+A method is marked with the @Override annotation whenever it is legal. This includes a class method overriding a superclass method, a class method implementing an interface method, and an interface method respecifying a superinterface method.
 
-This class is where all singleton subsystems, commands, and controllers are created.
+### 6.2 Static members: qualified using class
 
-[//]: # (**Terminology Note:**)
+When a reference to a static class member must be qualified, it is qualified with that class's name, not with a reference or expression of that class's type.
+That is to say, only refer to static methods and fields using the class name itself, not by reference with another instance of the class.
 
-[//]: # ()
+## 7 Javadoc
 
-[//]: # (> 1. The `Subsystem` class is located within the src.main.frc.robot.subsystem directory and is tasked with the responsibility of configuring and readying the subsystem for utilization within commands.)
+At the _minimum_, Javadoc is present for every public class, and every public or protected member of such a class, with a few exceptions noted below.
 
-[//]: # (> 2. The `Command` class can be found within the src.main.frc.robot.command directory assumes the responsibility of receiving input from the subsystem class and performing an action, such as propelling the robot forward or operating a motor in a specific direction.)
+    - Javadoc is not always present on a method that overrides a supertype method. 
+    - Javadoc is optional for "simple, obvious" members like getFoo(), in cases where there really and truly is nothing else worthwhile to say but "Returns the foo".
 
-[//]: # ()
-
-### **4.1 RobotContainer Fields**
-
-Fields in `RobotContainer` should be listed in the order of Controllers, Subsystems, and then Commands.
-
-All Controllers, Subsystems, and Commands should be initialized as `public static`. The reason for this is the
-requirement for a non-singleton subsystem is rare outside of testing, as well as that it allows access to a subsystem
-from anywhere using `RobotContainer.&lt;subsystem>` without having to explicitly pass a reference to that subsystem.
-
-### **4.2 RobotContainer Constructor**
-
-All default command assignments to subsystems should be in the `RobotContainer` constructor.
-
-In addition, all controller button assignments should be in the `configureBindings()` method.
-
-#### **4.2.1 ConfigureBindings method**
-
-This method is included by default within `RobotContainer` as a place to pair commands to controller buttons.
-
-When assigning commands to buttons, assignments to each controller should be grouped separately.
-
-### **4.3 RobotContainer Methods**
-
-Only methods related to interpreting controller inputs are allowed inside `RobotContainer`
-
-For example, a method called `deadband` applies a deadband to a controller stick input.
-
-A `deadband` is a range of input values where the output is zero, which can be used on any of the controller’s axes to
-prevent oscillation or repeated activation-deactivation cycles within the specified range.
-
-#### **4.3.1 getAutonomousCommand Method**
-
-`getAutonomousCommand` is a special method provided by WPIlib in `RobotContainer`. Usually, these Commands are created
-with the use of an Autonomous Command Factory, which is talked about in 6.4.
-
-## **5. Subsystems**
-
-This section describes the structure of Subsystem classes.
-
-### **5.1 Subsystem Fields**
-
-All subsystem fields should be declared as `private`.
-
-It is preferable to leave fields uninitialized and to initialize them inside the constructor.
-
-Generally, only fields required for the `periodic` method of the subsystem or fields which are required by many commands
-should be there, otherwise, they should exist inside commands.
-
-Fields should be declared in the order of those associated with physical hardware, followed by fields acting as data
-structures or processors. For example, an Arm subsystem would declare its fields starting with its motors and encoders,
-followed by things like PID controllers or voltage inputs.
-
-### **5.2 Subsystem Constructor**
-
-All non-primitive fields must be initialized within the constructor of a subsystem, and it is preferred that they be
-initialized in the same order.
-
-It is often necessary to set default states for WPIlib-provided objects, for example changing the mode of a motor from
-brake to coast. This should happen within the constructor as well.
-
-All modifications to CAN status frames should occur at the end of the constructor.
-
-### **5.3 Subsystem Methods**
-
-Subsystem Methods should be ordered in some meaningful manner at the discretion of the writer. The only exception is
-with logging or `telemetry` methods, which are placed second to first, as well as the `periodic` method, which is placed
-first after the constructor.
-
-#### **5.3.1 Periodic Method**
-
-The main telemetry method should be called at the end of the periodic method. In our 2023 robot, this was
-called `updateLogging` in all of our subsystems, and it relayed important data about that subsystem to the driver
-station.
-
-## **6. Commands**
-
-### **6.1 Command Fields**
-
-Generally, most of the data a command needs to work will be stored in a subsystem’s fields, so a command would only
-require fields that the subsystem doesn't need for its periodic method.
-
-### **6.2 Command Constructor**
-
-The command constructor should initialize any fields required by the command. Do not make modifications to any
-subsystems here, it is better to do that inside the special `initialize` method.
-
-#### **6.2.1 addRequirements Method**
-
-This method should be at the end of every command constructor, regardless of if the number of parameters is zero.
-
-If, during the operation of a command, you don’t want any other command running on a subsystem, then you can
-call `addRequirements(&lt;subsystem a>, &lt;subsystem b>...)` on those subsystems. For example, you wouldn't want two
-automatic paths on your drive base running at the same time, so you would probably add your drive base subsystem as a
-requirement.
-
-### **6.3 Command Methods**
-
-The command class has many special methods recognized by WPIlib which allows it to affect the robot. When a command is
-invoked it is handled by the `Command Scheduler`, which has its methods and tools to invoke commands.
-
-It is preferable to keep user methods outside command classes and inside the subsystems whenever possible. 
-
-#### **6.3.1 Initialize Method**
-
-This method is called when the command is initially scheduled. This is where all initial modifications to subsystems
-should happen, not in the constructor.
-
-### **6.4 Command Factories**
-
-Command Factories are classes composed exclusively of methods that return groups of commands together. WPIlib has a few
-classes which let you conveniently group classes together like `SequentialCommandGroup` which takes in commands and
-returns a command which executes them all sequentially, or `ParallelRaceGroup` which takes commands and Executes them
-all simultaneously, ending them all once one has finished.
-
-This can make writing autonomous sequences easier
-
-```java
-public static Command getOnePieceAuto(SwerveDrive drive, Intake intake, Indexer indexer, GravityClawSubsystem claw, Arm arm) {
-	return new SequentialCommandGroup(
-		new GravityClawCommand(claw, false),
-		new SetArmCommand(arm, Constants.ArmConstants.ArmSetPoints.intake),
-		ArmPathFactory.getScoreHighPath(drive, claw, arm, intake, indexer),
-		new WaitCommand(0.1),
-		new GravityClawToggleCommand(claw),
-		new WaitCommand(0.75)
-	);
-
-}
-```
-
-Here is a method from inside our `AutoFactory`, which describes a sequence of closing a claw, moving an arm into a
-scoring position, and releasing the claw. Autonomous Commands are automatically executed via the `getAutonomousCommand`
-method which is talked about in 4.3.1.
-
-## **7. Constants**
-
-The `Constants` class is composed of many internal classes declared as `public static final`, each assigned to a
-subsystem. Additionally, there may be an internal class for operator constants like controller ports.
-
-```java
-package frc.robot;
-
-public class Constants {
-	public static final class ExampleSubsystem {
-		public static final int constant_a = 0;
-	}
-	public static final class ExampleSubsystem2 {
-		public static final int constant_b = 0;
-	}
-}
-```
-
-## 8. **JavaDocs**
-
-At the minimum, `Javadoc` is present for every public class, and every public or protected member of such a class except
-objectively self-explanatory members.
-
-### **8.1 Block Tags**
-
-Any of the standard "block tags" that are used appear in the order , `@param`, `@return`, `@throws`, `@deprecated` and
-these four types never appear with an empty description. These tags are automatically generated by IntelliJ.
-
-### **8.2 Annotations**
-
-A method is marked with the `@Override` annotation whenever it is legal. 
+Other classes and members have Javadoc as needed or desired. 
 
