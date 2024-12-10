@@ -12,11 +12,23 @@
     
 3. [Source File Structure](#s3-source-file-structure)
 
+4. [Formatting](#s4-formatting)
+
+5. [Naming](#s5-naming)
+
+6. [Programming Practices](#s6-programming-practices)
+
+7. [Javadoc](#s7-javadoc)
+
+8. [WPIlib Project Structure](#s8-wpilib-project-structure)
+
 <h2 id="s1-introduction">1 Introduction</h2>
 
 This document serves as the complete definition of FRC Team 7034 coding standards for WPIlib java robot projects.
 
 Like other programming style guides, the issues covered span not only aesthetic issues of formatting, but other types of conventions or coding standards as well. However, this document focuses primarily on the hard-and-fast rules that we follow universally, and avoids giving advice that isn't clearly enforceable (whether by human or tool). 
+
+Sections 1-7 are made up of relevant snippets from the [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html).
 
 <h3 id="s1.1-guide-notes">1.1 Guide Notes</h3>
 
@@ -58,17 +70,17 @@ If there are both static and non-static imports, a single blank line separates t
 
 Each top-level class resides in a source file of its own.
 
-## 4 Formatting
+<h2 id="s4-formatting">4 Formatting</h2>
 
-### 4.1 Braces
+<h3 id="s4.1-braces">4.1 Braces</h3>
 
-#### 4.1.1 Use of optional braces
+<h4 id="s4.1.1-use-of-optional-braces">4.1.1 Use of optional braces</h4>
 
 Braces are used with if, else, for, do and while statements, even when the body is empty or contains only a single statement.
 
 Other optional braces, such as those in a lambda expression, remain optional.
 
-### 4.2 Column Limit: 100
+<h3 id="s4.2-column-limit">4.2 Column Limit: 100</h3>
 
 Java code has a column limit of 100 characters. Any line that would exceed this limit must be line-wrapped.
 
@@ -77,7 +89,7 @@ Exceptions:
 2. `package` and `import` statements
 3. Shell commands in comments
 
-### 4.3 Line Wrapping
+<h3 id="s4.3-line-wrapping">4.3 Line Wrapping</h3>
 
 Terminology Note: When code that might otherwise legally occupy a single line is divided into multiple lines, this activity is called line-wrapping.
 
@@ -95,7 +107,7 @@ Class and member modifiers, when present, appear in the order recommended by the
 public protected private abstract default static final transient volatile synchronized native strictfp
 ``
 
-## 5 Naming
+<h2 id="s5-naming">5 Naming</h2>
 
 The words 'name' and 'identifier' will be used interchangeably in this section.
 
@@ -143,7 +155,7 @@ Local variable names are written in lowerCamelCase.
 
 See the canonical definition here. (https://google.github.io/styleguide/javaguide.html#s5.3-camel-case)
 
-## 6 Programming Practices
+<h2 id="s6-programming-practices">6 Programming Practices</h2>
 
 ### 6.1 `@Override`: always used
 
@@ -154,7 +166,7 @@ A method is marked with the @Override annotation whenever it is legal. This incl
 When a reference to a static class member must be qualified, it is qualified with that class's name, not with a reference or expression of that class's type.
 That is to say, only refer to static methods and fields using the class name itself, not by reference with another instance of the class.
 
-## 7 Javadoc
+<h2 id="s7-javadoc">7 Javadoc</h2>
 
 At the _minimum_, Javadoc is present for every public class, and every public or protected member of such a class, with a few exceptions noted below.
 
@@ -162,4 +174,75 @@ At the _minimum_, Javadoc is present for every public class, and every public or
     - Javadoc is optional for "simple, obvious" members like getFoo(), in cases where there really and truly is nothing else worthwhile to say but "Returns the foo".
 
 Other classes and members have Javadoc as needed or desired. 
+
+<h2 id="s8-wpilib-project-structure">8 WPIlib Project Structure</h2>
+
+This is an example of a typical filetree for a command based WPIlib project.
+
+```
+src
+ |-main
+ | |-deploy
+ | | |-pathplanner
+ | | | |-navgrid.json
+ | | | |-autos
+ | | | |-paths
+ | | |-swerve
+ | |-java
+ | | |-frc
+ | | | |-robot
+ | | | | |-commands
+ | | | | | |-swervedrive
+ | | | | | | |-auto
+ | | | | | | | |-AutoBalanceCommand.java
+ | | | | | | |-drivebase
+ | | | | |-subsystems
+ | | | | | |-swervedrive
+ | | | | | | |-photonvision
+ | | | | | | |-SwerveSubsystem.java
+ | | | | |-Main.java
+ | | | | |-Robot.java
+ | | | | |-logging
+ | | | | | |-SubsystemLogging.java
+ | | | | |-Constants.java
+ | | | | |-RobotContainer.java
+```
+
+### 8.1 Subsystem/Command file structure
+
+Subsystems and commands consisting of multiple classes, either through utility classes or inheritence, must be within a package named after the subsystem.
+
+Subsystems, but not their associated commands consisting of a single class may be without their own package.
+
+```
+-commands
+ |-swervedrive
+ | |-auto
+ | | |-AutoBalanceCommand.java
+ | |-drivebase
+ | | |- ...
+ | |-intake
+ | | |- intakeCommand.java
+-subsystems
+ |-swervedrive
+ | |-photonvision
+ | | |- ...
+ | |-SwerveSubsystem.java
+ |-intakeSubsystem.java
+ |-indexerSubsystem.java
+```
+
+### 8.2 Autogenerated files
+
+The file paths of `Main.java`, `Robot.java`, `Constants.java`, and `RobotContainer.java` must not be changed from their defaults.
+
+### 8.3 Utility classes
+
+Utility classes may be placed in `src/main/java/frc/robot/` within an appropriately named package.
+
+Do not create a `utils` package as it tends to become cluttered with garbage very quickly.
+
+### 8.4 3rd party libraries
+
+Additional configuration files for 3rd party libraries belong in `src/main/deploy/[Library Name]`
 
