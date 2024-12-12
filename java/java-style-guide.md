@@ -22,6 +22,8 @@
 
 8. [WPIlib Project Structure](#s8-wpilib-project-structure)
 
+9. [Subsystems](#s9-subsystems)
+
 <h2 id="s1-introduction">1 Introduction</h2>
 
 This document serves as the complete definition of FRC Team 7034 coding standards for WPIlib java robot projects.
@@ -153,7 +155,7 @@ Local variable names are written in lowerCamelCase.
 
 ### 5.3 Camel case: defined
 
-See the canonical definition here. (https://google.github.io/styleguide/javaguide.html#s5.3-camel-case)
+See the canonical definition [here](https://google.github.io/styleguide/javaguide.html#s5.3-camel-case).
 
 <h2 id="s6-programming-practices">6 Programming Practices</h2>
 
@@ -208,7 +210,7 @@ src
  | | | | |-RobotContainer.java
 ```
 
-### 8.1 Subsystem/Command file structure
+<h3 id="s8.1-subsystem/command-file-structure">8.1 Subsystem/Command file structure</h3>
 
 Subsystems and commands consisting of multiple classes, either through utility classes or inheritence, must be within a package named after the subsystem.
 
@@ -242,7 +244,42 @@ Utility classes may be placed in `src/main/java/frc/robot/` within an appropriat
 
 Do not create a `utils` package as it tends to become cluttered with garbage very quickly.
 
-### 8.4 3rd party libraries
+<h3 id="8.4-3rd-party-libraries">8.4 3rd party libraries</h3>
 
 Additional configuration files for 3rd party libraries belong in `src/main/deploy/[Library Name]`
+
+<h2 id="s9-robotcontainer">9 RobotContainer</h2>
+
+<h3 id="s9.1-fields">9.1 Fields</h3>
+
+Fields in `RobotContainer` should be declared in the order of Controllers, Subsystems, Commands, followed by any members required for autonomous command logic.
+
+It is acceptable for subsystem and command fields may be initialized with `public static`, as the need for a non singleton subsystem is rare. This allows access to a subsystem in certain contexts without being required to pass an explicit reference.
+
+<h3 id="s9.2-constructor">9.2 Constructor</h3>
+
+All default command assignments to subsystems should be in the `RobotContainer()` constructor.
+
+<h4 id="s4.2.1-configurebindings">4.2.1 `ConfigureBindings()`</h4>
+
+When assigning commands to buttons, assignments to individual controllers should be grouped separately.
+
+<h2 id="s9-subsystems">9 Subsystems</h2>
+
+<h3 id="s9.1-fields">9.1 Fields</h3>
+
+Subsystem fields should be declared in the order of their association with physical hardware, followed by those acting as data structures or processors. The rough order of precendence is as follows:
+
+Motors > Encoders > Pneumatics > Digital IO > Feedback/forward Controllers > Enums and Records > Anything Else
+
+<h3 id="s9.2-methods">9.2 Methods</h3>
+
+<h4 id="s9.2.1-periodic()-method">9.2.1 `periodic()` and `simulationPeriodic()`</h4>
+
+The `periodic()` method (and `simulationPeriodic()` method if it exists) should be declared directly after the subsystem constructors.
+
+<h4 id="s9.2.2-telemetry-methods">9.2.2 Telemetry methods</h4>
+
+Methods with the primary purpose of telemetry should be declared after subsystem constructors and periodic methods.
+
 
