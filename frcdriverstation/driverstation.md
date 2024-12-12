@@ -23,3 +23,16 @@ Make sure that the team number is entered correctly.
 In the middle of the screen you can see the current status.
 Check  the team number, the battery voltage, all 3 indicators, and that the status message at the bottom.
 
+### Operation
+You can see the operation tab by clicking on the steering wheel on the left.
+
+The robot modes are: Teleop, runs the teleop code; Automous, runs auto code; Practice, runs as if in a match; And test, runs test code.
+
+You can Enable and Disable the robot from here.
+
+You can see the time elapsed since the robot was enabled.
+
+You can see the drain on the battery and CPU.
+
+You can change window mode and the team station.
+
