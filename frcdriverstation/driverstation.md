@@ -36,3 +36,12 @@ You can see the drain on the battery and CPU.
 
 You can change window mode and the team station.
 
+### Diagnostics
+The diagnostics tab located right under the operation tab and is used to diagnose issues with the robot.
+
+You can find the DS version number, roboRIO image version, WIPlib version, CAN device versions, and roboRIO memory stats.
+
+
+
+You can also reboot the roboRIO or restart the robot code.
+
