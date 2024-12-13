@@ -15,7 +15,6 @@ Enter - Disable the Robot
 Space - Emergency Stop the robot. After an emergency stop is triggered the roboRIO will need to be rebooted before the robot can be enabled again.
 
 
-### Setup
 Click the gear symbol on the left.
 Make sure that the team number is entered correctly.
 
@@ -36,12 +35,39 @@ You can see the drain on the battery and CPU.
 
 You can change window mode and the team station.
 
+You can also reboot the roboRIO or restart the robot code.
+
+
 ### Diagnostics
 The diagnostics tab located right under the operation tab and is used to diagnose issues with the robot.
 
 You can find the DS version number, roboRIO image version, WIPlib version, CAN device versions, and roboRIO memory stats.
 
+### Setup
+Click the gear symbol on the left.
+Make sure that the team number is entered correctly.
+
+You can find and edit the team number, dashboard type, game data, practice mode timing, and audio control in this tab.
+
+### USB
+Under the setup you will find the USB tab.
+
+You can find the list of all USB devices connected.
+
+At the bottom there is the rescan button to find new USB devices.
+
+You can find device indicators to see the state of the buttons, axes, and joystick.
+
+You can lock devices to specific USB slots.
+
+### Power
+The last tab is the power tab. You can see all information on the power and if certain parts such as the roboRIO are browning out.
 
 
-You can also reboot the roboRIO or restart the robot code.
+
+
+
+
+
+
 
