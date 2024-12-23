@@ -264,20 +264,20 @@ All default command assignments to subsystems should be in the `RobotContainer()
 
 When assigning commands to buttons, assignments to individual controllers should be grouped separately.
 
-<h2 id="s10-subsystems">9 Subsystems</h2>
+<h2 id="s10-subsystems">10 Subsystems</h2>
 
-<h3 id="s10.1-fields">9.1 Fields</h3>
+<h3 id="s10.1-fields">10.1 Fields</h3>
 
 Subsystem fields should be declared in the order of their association with physical hardware, followed by those acting as data structures or processors. The rough order of precendence is as follows:
 
 Motors > Encoders > Pneumatics > Digital IO > Feedback/forward Controllers > Enums and Records > Anything Else
 
-<h3 id="s10.2-methods">9.2 Methods</h3>
+<h3 id="s10.2-methods">10.2 Methods</h3>
 
-<h4 id="s10.2.1-periodic()-method">9.2.1 `periodic()` and `simulationPeriodic()`</h4>
+<h4 id="s10.2.1-periodic()-method">10.2.1 `periodic()` and `simulationPeriodic()`</h4>
 
 The `periodic()` method (and `simulationPeriodic()` method if it exists) should be declared directly after the subsystem constructors.
 
-<h4 id="s10.2.2-telemetry-methods">9.2.2 Telemetry methods</h4>
+<h4 id="s10.2.2-telemetry-methods">10.2.2 Telemetry methods</h4>
 
 Methods with the primary purpose of telemetry should be declared after subsystem constructors and periodic methods.
