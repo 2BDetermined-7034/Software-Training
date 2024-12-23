@@ -22,7 +22,9 @@
 
 8. [WPIlib Project Structure](#s8-wpilib-project-structure)
 
-9. [Subsystems](#s9-subsystems)
+9. [RobotContainer](#s9-robotcontainer)
+
+10. [Subsystems](#s10-subsystems)
 
 <h2 id="s1-introduction">1 Introduction</h2>
 
