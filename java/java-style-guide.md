@@ -26,6 +26,8 @@
 
 10. [Subsystems](#s10-subsystems)
 
+11. [WPIlib Best Practices](#s11-wpilib-best-practices)
+
 <h2 id="s1-introduction">1 Introduction</h2>
 
 This document serves as the complete definition of FRC Team 7034 coding standards for WPIlib java robot projects.
@@ -272,7 +274,7 @@ When assigning commands to buttons, assignments to individual controllers should
 
 Subsystem fields should be declared in the order of their association with physical hardware, followed by those acting as data structures or processors. The rough order of precendence is as follows:
 
-Motors > Encoders > Pneumatics > Digital IO > Feedback/forward Controllers > Enums and Records > Anything Else
+Motors > Encoders > Pneumatics > Digital IO > Feedback/forward Controllers > Enums and Records > Triggers > Anything Else
 
 <h3 id="s10.2-methods">10.2 Methods</h3>
 
@@ -283,3 +285,11 @@ The `periodic()` method (and `simulationPeriodic()` method if it exists) should 
 <h4 id="s10.2.2-telemetry-methods">10.2.2 Telemetry methods</h4>
 
 Methods with the primary purpose of telemetry should be declared after subsystem constructors and periodic methods.
+
+<h2 id="s11-wpilib-best-practices">11 WPIlib Best Practices</h2>
+
+For a comprehensive list of best practices for command based robots, see [this chief delphi article](https://www.chiefdelphi.com/t/command-based-best-practices-for-2025-community-feedback/465602).
+
+<h3 id="s11.1-units">11.1 Units</h3>
+
+In addition, all quantities with units should be represented with the associated WPIlib units class, as documented [here](https://docs.wpilib.org/en/stable/docs/software/basic-programming/java-units.html).
